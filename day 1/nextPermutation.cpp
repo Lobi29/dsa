@@ -7,11 +7,10 @@ void nextPermutation(vector<int> &nums)
 
     // finding the break point
     int index = -1;
-    int ref = nums[n - 1];
 
     for (int i = n - 2; i >= 0; i--)
     {
-        if (nums[i] < ref)
+        if (nums[i] < nums[i + 1])
         {
             index = i;
             break;
@@ -38,7 +37,7 @@ void nextPermutation(vector<int> &nums)
         // finding smallest number which is just greater than arr[i]
         for (int k = n - 1; k > index; k--)
         {
-            if (nums[k] >= ref)
+            if (nums[k] >= nums[index])
             {
                 int temp = nums[k];
                 nums[k] = nums[index];
